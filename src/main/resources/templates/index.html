@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout :: layout(~{::title}, ~{::div#content}, 'home')}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="content">
+        <h2>Dashboard</h2>
+
+
+        <!-- Grid System -->
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">Users</div>
+                    <div class="card-body">
+                        <i class="fas fa-users card-icon-background"></i>
+                        <h3 class="card-title">120</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">Posts</div>
+                    <div class="card-body">
+                        <i class="fas fa-comments card-icon-background"></i>
+                        <h3 class="card-title">45</h3>
+                    </div>
+                </div>
+            </div>
+ <!-- Card 3 -->
+ <div class="col-md-4">
+    <div class="card mb-3">
+        <div class="card-header">Comments</div>
+        <div class="card-body">
+            <i class="fas fa-comment-dots card-icon-background"></i>
+            <h3 class="card-title">300</h3>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Chart -->
+<canvas id="myChart" width="400" height="200"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+            label: 'Posts',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+</div>
+
+</body>
+</html>

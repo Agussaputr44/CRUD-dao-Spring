@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{layout :: layout(~{::title}, ~{::div#content}, 'employers')}"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <title th:text="${judulForm}">Add or Edit Data Employee</title>
+  </head>
+  <body>
+    <div id="content">
+      <h2 th:text="${judulForm}">Add or Edit Data Employee</h2>
+      <!-- Form to add data -->
+      <form th:action="@{/employers/save}" th:object="${emp}" method="post">
+        <input type="hidden" id="id" name="id" th:field="*{id}" />
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            th:field="*{name}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            th:field="*{email}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="location">Divition</label>
+          <input
+            type="text"
+            class="form-control"
+            id="division"
+            name="division"
+            th:field="*{division}"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
