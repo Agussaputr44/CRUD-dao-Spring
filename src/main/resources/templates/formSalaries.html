@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{layout :: layout(~{::title}, ~{::div#content}, 'salaries')}"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <title th:text="${judulForm}">Add or Edit Data Employee</title>
+  </head>
+  <body>
+    <div id="content">
+      <h2>Add/Edit Salary</h2>
+      <!-- Form untuk menambah atau mengedit Salary -->
+      <form th:action="@{/salaries/save}" th:object="${salary}" method="post">
+        <input type="hidden" name="id" id="id" th:field="*{id}"/>
+        <div class="form-group">
+          <label for="employee">Employee</label>
+          <select class="form-control" id="employee" name="employeeId">
+            <option value="" th:unless="${employees}">
+              Select an employee
+            </option>
+            <option
+              th:each="employee : ${employees}"
+              th:value="${employee.id}"
+              th:text="${employee.name}"
+              th:selected="${salary.employee != null and salary.employee.id == employee.id}"
+            >
+              Employee Name
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            name="amount"
+            th:field="*{amount}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="paymentDate">Payment Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="paymentDate"
+            name="paymentDate"
+            th:field="*{paymentDate}"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+body {
+    background-color: #f8f9fa;
+}
+header {
+    background: url('https://source.unsplash.com/random/1920x1080?nature') no-repeat center center;
+    background-size: cover;
+}
+
+header h1 {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Stroke effect */
+}
+
+nav {
+    background-color: #343a40;
+}
+
+nav .nav-link {
+    color: white;
+    border-radius: 20px;
+}
+
+nav .nav-item {
+    margin-right: 10px;  /* Add right margin */
+    margin-left: 10px;   /* Add left margin */
+    /* margin-top: 5px; */
+}
+
+nav .nav-item.active .nav-link,
+nav .nav-link:hover {
+    background-color: #007BFF;
+    color: white;
+    width: 85px;
+    /* padding: 8px 5px; */
+    text-align: center;
+}
+
+main {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0;
+}
+
+footer {
+    background-color: #343a40;
+}
+
+.card-icon-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.card-body {
+    position: relative;
+    z-index: 1;
+}

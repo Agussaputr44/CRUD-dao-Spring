@@ -1,20 +1,23 @@
 package com.example.demo.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="employee") //nama tabel
+@Table(name = "employee") // nama tabel
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id; //field id
-    private String name; //field name
-    private String email; //field email
-    private String division; //field division
+    private int id; // field id
+    private String name; // field name
+    private String email; // field email
+    private String division; // field division
 
     public Employee() {
     }
@@ -23,6 +26,17 @@ public class Employee {
         this.name = name;
         this.email = email;
         this.division = division;
+    }
+
+    @OneToMany(mappedBy = "employee")
+    private Set<Salary> salaries; // Hubungan ke Salary
+
+    public Set<Salary> getSalaries() {
+        return salaries;
+    }
+
+    public void setSalaries(Set<Salary> salaries) {
+        this.salaries = salaries;
     }
 
     public int getId() {
@@ -41,7 +55,6 @@ public class Employee {
         this.name = name;
     }
 
-
     public String getEmail() {
         return email;
     }
@@ -57,11 +70,10 @@ public class Employee {
     public void setDivision(String division) {
         this.division = division;
     }
-    
+
     @Override
     public String toString() {
         return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", division=" + division + "]";
     }
 
 }
-
